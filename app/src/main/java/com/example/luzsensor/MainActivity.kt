@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.graphics.Color
 
-
+//Comentário sobre o projeto par testar o Commit.
 class MainActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
     private var sensorLuz: Sensor? = null
@@ -62,5 +62,4 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         sensorManager.unregisterListener(this)
     }
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int){}
-
 }
