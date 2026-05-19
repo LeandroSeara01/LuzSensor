@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Luz Sensor</string>
+    <string name="texto_luminosidade">Luminosidade: %1$.1f lx</string>
 </resources>

@@ -2,7 +2,6 @@ package com.example.luzsensor
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -77,7 +76,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
         layoutPrincipal = findViewById(R.id.layout_principal)
 
         //Iniciar Gerencamento de Sensores
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         //Apontando para um sensor de Luz
         sensorLuz = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
     }
@@ -85,8 +84,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
     override fun onSensorChanged(event: SensorEvent?) {
         if (event != null){
             val valorLuz = event.values[0] // valor de luz em lux
-            textoLuz.text = "Luminosidade: $valorLuz lx"
-
+            textoLuz.text = getString(R.string.texto_luminosidade, valorLuz)
             //mudar cor se estiver escuro
             if (valorLuz < 50){
                 layoutPrincipal.setBackgroundColor(Color.DKGRAY)
